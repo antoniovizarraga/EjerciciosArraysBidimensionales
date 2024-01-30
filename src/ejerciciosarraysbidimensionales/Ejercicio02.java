@@ -16,7 +16,6 @@ public class Ejercicio02 {
 	public static void main(String[] args) {
 
 		int rowIndex = 1;
-		
 
 		String[][] table = new String[STUDENTS + 1][SUBJECTS + 1];
 
@@ -43,9 +42,13 @@ public class Ejercicio02 {
 		// "Null".
 		table[0][0] = "";
 
-		for (int i = 0; i < SUBJECTS; i++) {
-			table[rowIndex][i + 1] = GetValue.getString("What grade has Student " + (i + 1) + "?");
-		}
+		do {
+			for (int i = 0; i < SUBJECTS; i++) {
+				table[rowIndex][i + 1] = GetValue.getString("What grade has Student " +
+				(rowIndex) + " in Subject " + (i + 1) + "?");
+			}
+			rowIndex++;
+		} while (rowIndex != 5);
 
 		// Function to print the values of the array
 		for (String[] row : table) {
@@ -54,7 +57,7 @@ public class Ejercicio02 {
 			}
 			System.out.println();
 		}
-		
+
 		GetValue.SCANNER.close();
 
 	}
