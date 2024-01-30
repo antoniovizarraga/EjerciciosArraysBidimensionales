@@ -8,14 +8,14 @@ import java.util.InputMismatchException;
  * method and the do-while loop. We will be making functions for 3 data types:
  * Strings, integers, and doubles. Which they are the main ones we actually
  * use in class. */
-public class getValue {
+public class GetValue {
+
+	public static final Scanner SCANNER = new Scanner(System.in);
 
 	// We start making the Integer function.
-	public static int getInteger() {
+	public static int getInteger(String textToShowToTheUser) {
 
 		// We create the Scanner object.
-		Scanner sc = new Scanner(System.in);
-
 		// We create the variable which we'll be using for
 		// returning it later and also will be the
 		// condition on the do-while loop.
@@ -26,15 +26,15 @@ public class getValue {
 		do {
 			try {
 				// Ask the user for a value
-				System.out.println("Introduzca un valor: ");
+				System.out.println(textToShowToTheUser);
 
 				// And we open the Scanner
-				returnValue = sc.nextInt();
+				returnValue = SCANNER.nextInt();
 
 				// If the value throws a InputMismatchException error,
 			} catch (InputMismatchException e) {
 				// Clean the Scanner buffer just in case
-				sc.nextLine();
+				SCANNER.nextLine();
 
 				// Print the error in the terminal
 				System.err.println("ERROR: Has introducido un valor que no es un número entero. Vuelve a intentarlo.");
@@ -44,8 +44,6 @@ public class getValue {
 			// value.
 		} while (returnValue == 0);
 
-		// We close the Scanner.
-		sc.close();
 
 		// And finally, return the value.
 		return returnValue;
@@ -53,24 +51,21 @@ public class getValue {
 
 	
 	// This is just the same function as before, but with Doubles.
-	public static double getDouble() {
-		Scanner sc = new Scanner(System.in);
-
+	public static double getDouble(String textToShowToTheUser) {
 		double returnValue = 0;
 
 		do {
 			try {
-				System.out.println("Introduzca un valor: ");
-				returnValue = sc.nextDouble();
+				System.out.println(textToShowToTheUser);
+				returnValue = SCANNER.nextDouble();
 
 			} catch (InputMismatchException e) {
-				sc.nextLine();
+				SCANNER.nextLine();
 				System.err.println("ERROR: Has introducido un valor que no es un número entero. Vuelve a intentarlo.");
 			}
 
 		} while (returnValue == 0);
 
-		sc.close();
 
 		return returnValue;
 	}
@@ -80,15 +75,12 @@ public class getValue {
 	 * accepts any character as a String, so the InputMismatchException here is
 	 * useless.
 	 */
-	public static String getString() {
-		Scanner sc = new Scanner(System.in);
-
+	public static String getString(String textToShowToTheUser) {
 		String returnValue = "";
 
-		System.out.println("Introduzca un valor: ");
-		returnValue = sc.nextLine();
+		System.out.println(textToShowToTheUser);
+		returnValue = SCANNER.nextLine();
 
-		sc.close();
 
 		return returnValue;
 	}
