@@ -15,10 +15,15 @@ public class Ejercicio02 {
 
 	public static void main(String[] args) {
 
+		/* This will be the variable that indicates to the for loop in which row
+		 * the program will be writing a value. */
 		int rowIndex = 1;
 
+		/* This is the Array. The reason why we sum 1 to the rows and columns
+		 * of the Array are explained below. */
 		String[][] table = new String[STUDENTS + 1][SUBJECTS + 1];
 
+		// This will write the names of the students (Student 1, Student 2...).
 		for (int i = 0; i < STUDENTS; i++) {
 			table[i + 1][0] = "Student " + (i + 1);
 		}
