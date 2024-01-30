@@ -28,25 +28,40 @@ public class Ejercicio02 {
 		 * printing in the first column the names of the students (Student 1, student
 		 * 2...) and the first row will have the names of the subjects. For example:
 		 * 
-		 * Math Computer Engineering Databases Student 1 7 8 6 Student 2 5 9 7
+		 *			 		Math	Computer Engineering	Databases
+		 * Student 1		5				7					4
+		 * Student 2		7				8					6
+		 * Student 3 		9				8					7
+		 * 
 		 * 
 		 * And that's why we need 1 extra column and another 1 extra row.
 		 *
 		 */
 
+		// We first add the subjects to the Array. We sum 1 to start from the second position.
+		/* We're doing this to basically not writing anything on the first position of the
+		 * Array. Later, when the table prints out, you'll understand soon enough. */
 		for (int i = 0; i < SUBJECTS; i++) {
 			table[0][i + 1] = "Subject " + (i + 1);
 		}
 
-		// We insert anything to actually be able to print white space instead of:
+		// We insert nothing to actually be able to print white space instead of:
 		// "Null".
 		table[0][0] = "";
 
+		/* Do a loop until the rowIndex reaches 5 (Which the code will execute 5 times).
+		 * I think this loop can be replaced by a for loop, but yeah, using a do-while
+		 * was my initial idea. So... */
 		do {
+			/* Execute this code same times as how many elements there are stored
+			 * in the second dimension of the Array. Same as before, we start in
+			 * the second position, because the first positions of every row
+			 * contains the Student's names. */
 			for (int i = 0; i < SUBJECTS; i++) {
 				table[rowIndex][i + 1] = GetValue.getString("What grade has Student " +
 				(rowIndex) + " in Subject " + (i + 1) + "?");
 			}
+			// We sum 1 to the variable to change the row. Otherwise, the loop would never finish.
 			rowIndex++;
 		} while (rowIndex != 5);
 
@@ -58,6 +73,7 @@ public class Ejercicio02 {
 			System.out.println();
 		}
 
+		// We close the Scanner.
 		GetValue.SCANNER.close();
 
 	}
