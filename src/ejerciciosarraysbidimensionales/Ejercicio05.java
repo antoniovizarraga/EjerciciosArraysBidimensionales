@@ -27,34 +27,33 @@ public class Ejercicio05 {
 		
 		table = Arrays.copyOf(randomArray(), 4);
 		
-		int result = 0;
-		int result2 = 0;
-		int result3 = 0;
+		int sumaFilas = 0;
+		int sumaColumnas = 0;
+		int sumaTotal = 0;
 		
-		for(int[] fila : table) {
-			for (int valor: fila) {
-				
-			}
-		}
 		
 		//table[3][4] = result;
 		
 		for (int[] fila : table) {
 			for (int valor : fila) {
-				result += valor;
-				result2 += valor;
+				sumaFilas += valor;
+				sumaTotal += valor;
 				System.out.print(valor + "\t");
 			}
-			System.out.print("Suma Fila " + result);
-			result = 0;
+			System.out.print("Suma Fila " + sumaFilas);
+			sumaFilas = 0;
 			System.out.println();
 		}
 		
-		for(int i = 0; i < table.length; i++ ) {
-			for(int j = 0; j < table[0].length; j++) {
-				result3 += table[i][j];
+		for(int j = 0; j < table[0].length; j++ ) {
+			for(int i = 0; i < table.length; i++) {
+				sumaColumnas += table[i][j];
 			}
+			System.out.print(sumaColumnas + "\t");
+			sumaColumnas = 0;
 		}
+		
+		System.out.print("Suma total: " + sumaTotal);
 		
 		
 	}
