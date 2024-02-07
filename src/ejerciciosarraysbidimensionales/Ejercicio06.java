@@ -34,11 +34,11 @@ public class Ejercicio06 {
 		// Bucle for que comprueba cuál es el máximo y cuál es el mínimo.
 		for (int[] fila : table) {
 			for (int valor : fila) {
-				if(valor >= max) {
+				if(valor > max) {
 					max = valor;
 				}
 				
-				if(valor <= min) {
+				if(valor < min) {
 					min = valor;
 				}
 				
